@@ -34,6 +34,10 @@ func (nr *NoteRepository) FindAll() []model.Note {
 
 // FindByID - Returns note by ID
 func (nr *NoteRepository) FindByID(ID string) (model.Note, error) {
+	if ID == "" {
+		return model.Note{}, errors.New("ID should NOT be empty")
+	}
+
 	for _, note := range nr.Notes {
 		if note.ID == ID {
 			return note, nil
@@ -44,12 +48,28 @@ func (nr *NoteRepository) FindByID(ID string) (model.Note, error) {
 
 // Create - Creates new note
 func (nr *NoteRepository) Create(note model.Note) (model.Note, error) {
+	if note.ID == "" {
+		return model.Note{}, errors.New("ID should NOT be empty")
+	}
+
+	n, _ := nr.FindByID(note.ID)
+	if (n != model.Note{}) {
+		return model.Note{}, errors.New("note already exists")
+	}
+
 	nr.Notes = append(nr.Notes, note)
 	return note, nil
 }
 
 // Update - Creates new note
 func (nr *NoteRepository) Update(ID string, note model.Note) (model.Note, error) {
+	if ID == "" {
+		return model.Note{}, errors.New("ID should NOT be empty")
+	}
+	if (note == model.Note{}) {
+		return model.Note{}, errors.New("note should NOT be empty")
+	}
+
 	index := -1
 	for i, note := range nr.Notes {
 		if note.ID == ID {
