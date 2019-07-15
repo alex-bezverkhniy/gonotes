@@ -1,0 +1,12 @@
+label {
+    display: block;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+#json {
+    display: none;
+    visibility: hidden;
+}

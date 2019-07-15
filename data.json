@@ -1,0 +1,16 @@
+[
+    {
+      "id": "1",
+      "title": "Note 1",
+      "createdAt": "2019-07-12T14:32:21.003914596-05:00",
+      "desc": "Test note #1",
+      "content": "Sample content of note #1"
+    },
+    {
+      "id": "2",
+      "title": "Note 2",
+      "createdAt": "2019-07-12T14:32:21.003914791-05:00",
+      "desc": "Test note #2",
+      "content": "Sample content of note #2"
+    }
+  ]
