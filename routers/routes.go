@@ -19,6 +19,7 @@ func NewRouter(mux *http.ServeMux, nc *controllers.NoteController) *Router {
 	mux.Handle("/", http.FileServer(http.Dir("./static")))
 	mux.HandleFunc("/notes/", nc.Dispatch)
 	mux.HandleFunc("/notes", nc.Dispatch)
+	mux.HandleFunc("/flush/notes", nc.Flush)
 
 	return r
 }

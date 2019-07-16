@@ -155,3 +155,14 @@ func (nc *NoteController) Delete(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusOK)
 }
+
+// Flush - load from the file and flush data
+func (nc *NoteController) Flush(w http.ResponseWriter, r *http.Request) {
+	log.Println("Flush")
+	if r.Method == "PATCH" {
+		nc.NoteRepository.Flush()
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+	w.WriteHeader(http.StatusBadRequest)
+}
