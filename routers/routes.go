@@ -6,10 +6,19 @@ import (
 	"github.com/alex-bezverkhniy/gonotes/controllers"
 )
 
-// CreateRoutes - Creates new router
-func CreateRoutes(mux *http.ServeMux, nc *controllers.NoteController) {
-	mux.Handle("/", http.FileServer(http.Dir("./static")))
+// Router - Router abstraction
+type Router struct {
+	Mux            *http.ServeMux
+	NoteController *controllers.NoteController
+}
 
+// NewRouter - creates new instance
+func NewRouter(mux *http.ServeMux, nc *controllers.NoteController) *Router {
+	r := &Router{Mux: mux, NoteController: nc}
+
+	mux.Handle("/", http.FileServer(http.Dir("./static")))
 	mux.HandleFunc("/notes/", nc.Dispatch)
 	mux.HandleFunc("/notes", nc.Dispatch)
+
+	return r
 }
