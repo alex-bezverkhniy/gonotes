@@ -1,27 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>A static page</title>
-	<link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-	<h1>Hello from a static page</h1>
-	<div id="json" data-tw-bind="json"></div>
-	<div id="container"></div>
-	<form onsubmit="return false">
-		<div>
-			<label for="title">Title</label>
-			<input type="text" id="title" data-tw-bind="title">		
-		</div>
-		<div>
-			<label for="desc">Description</label>
-			<textarea name="desc" id="desc" data-tw-bind="desc" cols="30" rows="10"></textarea>		
-		</div>
-		<div>
-			<button id="addBtn" onclick="addNote()">Add</button>
-		</div>	
-	</form>
-	<script src="js/main.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>A static page</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <h1>Hello from a static page</h1>
+
+    <div class="row">
+      <div class="column column-2 spacer"></div>
+      <div class="column column-8">
+        <div class="accordion">
+          <div class="item">
+            <input type="checkbox" name="tab-1" id="tab-1" />
+            <label for="tab-1">Title for tab 1</label>
+            <div class="tab-content">
+              <h2>Tab 1 sub title</h2>
+              <p>Tab 1 Content</p>
+            </div>
+          </div>
+          <div class="item">
+            <input type="checkbox" name="tab-2" id="tab-2" />
+            <label for="tab-2">Title for tab 2</label>
+            <div class="tab-content">
+              <h2>Tab 2 sub title</h2>
+              <p>Tab 2 Content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column column-2 spacer"></div>
+    </div>
+    <div class="row">
+      <div class="column column-2 spacer"></div>
+      <div class="column column-8">2</div>
+      <div class="column column-2 spacer"></div>
+    </div>
+
+    <!-- <div id="json" data-tw-bind="json"></div>
+    <div id="container"></div>
+    <form onsubmit="return false">
+      <div>
+        <label for="title">Title</label>
+        <input type="text" id="title" data-tw-bind="title" />
+      </div>
+      <div>
+        <label for="desc">Description</label>
+        <textarea
+          name="desc"
+          id="desc"
+          data-tw-bind="desc"
+          cols="30"
+          rows="10"
+        ></textarea>
+      </div>
+      <div>
+        <button id="addBtn" onclick="addNote()">Add</button>
+      </div>
+    </form> -->
+    <script src="js/main.js"></script>
+  </body>
 </html>
