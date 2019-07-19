@@ -113,6 +113,7 @@
 
 body {
   padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .column {
@@ -165,10 +166,51 @@ body {
   align-items: center;
 }
 
+.accordion .item label .date {
+  margin-right: 5px;
+  color: #999;
+  font-size: 0.8em;
+}
+
+.accordion .item label .company-name {
+  margin-right: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordion .item label .city {
+  margin-right: 0px;
+  font-size: 0.8em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.accordion .item label .city:before {
+  margin-right: 0px;
+  content: "[";
+}
+.accordion .item label .city:after {
+  margin-right: 0px;
+  content: "]";
+}
+
+.accordion .item label .job-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.accordion .item label .job-title:before {
+  margin-left: 3px;
+  content: " - ";
+}
+
 .accordion .item label:after {
   content: "+";
+  font-size: 1.5em;
   position: absolute;
-  right: 1em;
+  right: 0.5em;
 }
 
 .accordion .item input[type="checkbox"] {
@@ -176,6 +218,7 @@ body {
 }
 
 .accordion .item input:checked + label:after {
+  font-size: 1.5em;
   content: "-";
 }
 .accordion .item .tab-content {
