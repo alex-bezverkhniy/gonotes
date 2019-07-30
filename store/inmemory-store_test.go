@@ -58,13 +58,24 @@ func TestLoad(t *testing.T) {
 	sr := createSpyReader()
 	fdl := createDataLoader(sr)
 
-	got, err := fdl.Load()
+	t.Run("should has one note", func(t *testing.T) {
+		got, err := fdl.Load()
 
-	if err != nil {
-		t.Errorf("returns an error '%q'", err)
-	}
+		if err != nil {
+			t.Errorf("returns an error '%q'", err)
+		}
 
-	assertStoreLen(t, got, 1)
+		assertStoreLen(t, got, 1)
+	})
+
+	t.Run("should returns error", func(t *testing.T) {
+		fdl := createDataLoader(&SpyReader{r: bytes.NewReader([]byte(""))})
+		_, err := fdl.Load()
+
+		if err == nil {
+			t.Errorf("expected an error")
+		}
+	})
 
 }
 
